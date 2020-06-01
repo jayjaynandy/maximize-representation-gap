@@ -136,23 +136,15 @@ class cifar10vgg:
         model.compile(loss=loss_fn, optimizer=sgd, metrics=['accuracy'])
 
         # In-Domain training data
-        # Change to 10, 0.1, 0.1 and fine-tune for 15 epochs in the end
-        datagen = ImageDataGenerator(rotation_range=15,
-                                     width_shift_range=0.15,
-                                     height_shift_range=0.15, 
-                                     horizontal_flip=True)
+        datagen = ImageDataGenerator(rotation_range=10, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
         datagen.fit(in_dist.train_data)
 
-        model_checkpoint= keras.callbacks.ModelCheckpoint(model_path, 
-                                monitor="val_acc", save_best_only=True, 
-                                save_weights_only=True, verbose=1)
-
-        train_gen = datagen.flow(in_dist.train_data, in_dist.train_labels, 
-                                 batch_size= batch_size)
+        model_checkpoint= keras.callbacks.ModelCheckpoint(model_path, monitor="val_acc", save_best_only=True, save_weights_only=True, verbose=1)
+        train_gen = datagen.flow(in_dist.train_data, in_dist.train_labels, batch_size= batch_size)
 
         # -------------------------- OOD training data: CIFAR 100
         y_ood = out_dist.train_labels[:,:10]
-        y_ood[:] = 0.1
+        y_ood[:] = 0.1   # uniform distribution for OOD training examples
         ood_gen = ImageDataGenerator(rotation_range=15, width_shift_range=0.15, height_shift_range=0.15, horizontal_flip=True)
         ood_gen.fit(out_dist.train_data)
         ood_gen = ood_gen.flow(out_dist.train_data, y_ood, batch_size=32)
@@ -161,10 +153,6 @@ class cifar10vgg:
             while True:
                 x0, y0 = train_gen.next()
                 x1, y1 = ood_gen.next()
-
-                # for fine-tuning with noisy OOD data augmentation at the end of the training !!
-                # x1 = x1 + np.random.normal(0,0.05, x1.shape)
-
                 xf = np.concatenate((x0, x1), axis=0)
                 yf = np.concatenate((y0, y1), axis=0)        
                 yield (xf, yf)
@@ -182,10 +170,8 @@ class cifar10vgg:
 '''
 Proposed Loss Function
 '''
-# l: choose 0.0 for DPN+ and 0.5 for DPN-
-l = 0.5
 def loss_fn(correct, predicted):
-    y_max = (tf.reduce_max(correct, axis=1) -0.5)                              
+    y_max = (tf.reduce_max(correct, axis=1) -0.5)  # Choose +0.5 for DPN+ and -0.5 for DPN-
     y_sgm = tf.nn.sigmoid(predicted)
     return tf.nn.softmax_cross_entropy_with_logits(labels=correct, logits=predicted) \
             - y_max*tf.reduce_mean(y_sgm, axis=1)
