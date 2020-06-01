@@ -54,10 +54,7 @@ def get_data():
             count += 1
     
     plt.plot(dataX[h*3:, 0], dataX[h*3:, 1], 'k,')
-    
-    
-#    np.savez('synt_1', x_train = dataX, y_train= dataY, x_test = testX, y_test= testY)    
-    #plt.title("Mixture of 3 Gaussian distributions")
+
     plt.plot(-20,20)
     plt.plot(20,-20)
     plt.plot(-20,-20)
