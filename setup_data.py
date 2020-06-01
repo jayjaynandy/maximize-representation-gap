@@ -15,7 +15,7 @@ class Cifar10:
 
     @staticmethod
     def print():
-        return "cifar"
+        return "cifar10"
 
 class Cifar100:
     def __init__(self):
@@ -31,4 +31,4 @@ class Cifar100:
 
     @staticmethod
     def print():
-        return "cifar"
+        return "cifar100"
