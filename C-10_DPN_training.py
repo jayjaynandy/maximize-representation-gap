@@ -136,7 +136,11 @@ class cifar10vgg:
         model.compile(loss=loss_fn, optimizer=sgd, metrics=['accuracy'])
 
         # In-Domain training data
-        datagen = ImageDataGenerator(rotation_range=10, width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
+        # After training 200 epochs, we further fine-tune the model by choosing learning rate= 1e-4 and 
+        # setting the augmentation parameters to rotation_range=0, width_shift_range=0.1, height_shift_range=0.1.
+        # We applied this trick to train the competative models as well.
+        # It improves the OOD detection performance as well as the in-domain classification accuracy.
+        datagen = ImageDataGenerator(rotation_range=15, width_shift_range=0.15, height_shift_range=0.15, horizontal_flip=True)
         datagen.fit(in_dist.train_data)
 
         model_checkpoint= keras.callbacks.ModelCheckpoint(model_path, monitor="val_acc", save_best_only=True, save_weights_only=True, verbose=1)
