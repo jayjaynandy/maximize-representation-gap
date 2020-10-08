@@ -44,6 +44,10 @@ def fn(correct, predicted):
             - y_max*tf.reduce_mean(y_sgm, axis=1)
 
 #data augmentation
+# After training 200 epochs, we further fine-tune the model by choosing learning rate= 5e-6 and 
+# setting the augmentation parameters to rotation_range=0, width_shift_range=0.0, height_shift_range=0.0.
+# We also applied this trick to train the competative models as well.
+# It improves the OOD detection performance as well as the in-domain classification accuracy.
 datagen = ImageDataGenerator(rescale = 1./255, rotation_range=10,
                              width_shift_range=0.10, height_shift_range=0.10,
                              horizontal_flip=True, fill_mode="reflect")
