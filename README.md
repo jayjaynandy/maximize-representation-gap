@@ -1,23 +1,45 @@
 # Towards Maximizing the Representation Gap between In-Domain & Out-of-Distribution Examples (ICML UDL 2020, NeurIPS 2020)
-Workshop version: ICML Workshop on Uncertainty & Robustness in Deep Learning (UDL) [[Link]](http://www.gatsby.ucl.ac.uk/~balaji/udl2020/accepted-papers/UDL2020-paper-134.pdf)
+Workshop version: [ICML 2020 Workshop on Uncertainty & Robustness in Deep Learning (UDL)](http://www.gatsby.ucl.ac.uk/~balaji/udl2020/accepted-papers/UDL2020-paper-134.pdf)
 
-Full paper: Paper link to be uploaded soon. 
+Full paper:  [NeurIPS 2020](https://neurips.cc/Conferences/2020/AcceptedPapersInitial)
 
 Abstract - Among existing uncertainty estimation approaches, Dirichlet Prior Network (DPN) distinctly models different predictive uncertainty types. 
 However, for in-domain examples with high data uncertainties among multiple classes, even a DPN model often produces indistinguishable representations from the out-of-distribution (OOD) examples, compromising their OOD detection performance. 
-We address this shortcoming by proposing a novel loss function for DPN to maximize the representation gap between in-domain and OOD examples. 
+In this paper, we address this shortcoming by proposing a novel loss function for DPN to maximize the representation gap between in-domain and OOD examples. 
 Experimental results demonstrate that our proposed approach consistently improves OOD detection performance.
 
 
-
 ## Descriptions of the codes:
-In this repository, we provide the training code for our DPN models along with codes for necessary metrics applied in our paper:
+Our models are trained and tested using `keras 2.1.2` and `tensorflow 1.9.0`
+
+### Synthetic Experiment
+Please follow the jupyter notebook domonstration, `DPN_synthetic_demo.ipynb` in `synthetic_experiment_demo` to understand and visualize the motivation and advantage of our proposed loss function for the DPN models.
+
+`toyNet.py`: A 2-layered network used for our experiments. We can simply choose a different network for complex datasets.
+
+`uncertainty_metric.py`provides the code for calculating the uncertainty measures including `total uncertainty` measures i.e `Max-probability`, `Entropy` and `distributional uncertainty` measures i.e `mutual information`, `precision (or inverse-EPKL)` and the code for `differential entropy` for Dirichlet distributions. The functions provided in the code takes the `logit values` of the network as their inputs.
+
+`synthetic_data.py`: To generate the synthetic data.
+
+
+### Benchmark datasets.
+
 `C-10_DPN_training.py` is the training code for our `DPN^-` classifier for C10 classification task.
 
-Training `DPN+`: Please follow the instructions inside the `C-10_DPN_training.py` code to modify the hyper-parameter of our proposed loss function for `DPN+`.
+Training `DPN+`: Please follow the instructions inside the `C-10_DPN_training.py` code to modify the hyper-parameter of our proposed loss function for `DPN+` (as instructed inside the training code).
 
-Also, we provide the `ipython demo` for our synthetic experiment in `synthetic_experiment_demo` directory. 
-
-`uncertainty_metric.py` provides the code for calculating the uncertainty metrices including `total uncertainty` measures i.e `Max-probability`, `Entropy` and `distributional uncertainty` measures i.e `mutual information`, `precision (or inverse-EPKL)` and the code for `differential entropy` for Dirichlet distributions. The functions provided in the code takes the `logit values` of the network as their inputs.
+`uncertainty_metric.py`provides the code for calculating the uncertainty measures
 
 `klDiv_gaussians.py` provides the code to compute the KL-divergence between two Gaussian distributions given their mean and co-variance matrix. This measure is used in Table-3 of our paper.
+
+## Citation
+
+If our code or our results are useful in your reasearch, please consider citing:
+
+```[bibtex]
+@inproceedings{maximize-representation-gap_neurips2020,
+  author={Jay Nandy and Wynne Hsu and Mong{-}Li Lee},
+  title={Towards Maximizing the Representation Gap between In-Domain & Out-of-Distribution Examples},
+  booktitle={NeurIPS},
+  year={2020},
+}
