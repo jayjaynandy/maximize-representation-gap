@@ -8,6 +8,14 @@ However, for in-domain examples with high data uncertainties among multiple clas
 In this paper, we address this shortcoming by proposing a novel loss function for DPN to maximize the representation gap between in-domain and OOD examples. 
 Experimental results demonstrate that our proposed approach consistently improves OOD detection performance.
 
+<img src="https://github.com/jayjaynandy/maximize-representation-gap/blob/master/DPN_uncertainties.png?raw=true" alt="cleverhans logo">
+
+We show that for in-domain examples with high data uncertainties, their loss function distributes the target precision values among the overlapping classes, leading to much flatter distributions. 
+Hence, it often produces indistinguishable representations for those in-domain misclassified examples from the OOD examples, compromising the OOD detection performance.
+Hence, we propose to produce sharp-multi-modal Dirichlet distributions, where probability densities are uniformly spread across each corner of the probability simplex, for OOD examples to maximize their representational gap from the in-domain examples. See the above figure, where we present the desired behaviours of DPN classifiers to indicate different predictive uncertainty types. 
+
+We further show that, the DPN framework using RKL loss cannot produce sharp-multi-modal Dirichlet distributions for OOD examples. Hence, we propose a novel loss function that explicitely models the concentration parameters of the output Dirichlet distributions for our DPN.
+
 
 ## Descriptions of the codes:
 Our models are trained and tested using `keras 2.1.2` and `tensorflow 1.9.0`
