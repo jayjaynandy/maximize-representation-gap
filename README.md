@@ -24,13 +24,15 @@ Please follow the jupyter notebook domonstration, `DPN_synthetic_demo.ipynb` in 
 
 ### Benchmark datasets.
 
-`C-10_DPN_training.py` is the training code for our `DPN^-` classifier for C10 classification task.
+`C-10_DPN_training.py` in `Benchmark/C-10/` directory provides the training code for our `DPN^-` classifier for C10 classification task.
 
 Training `DPN+`: Please follow the instructions inside the `C-10_DPN_training.py` code to modify the hyper-parameter of our proposed loss function for `DPN+` (as instructed inside the training code).
 
-`uncertainty_metric.py`provides the code for calculating the uncertainty measures
+Similarly, the `DPN-` training codes for `C-100` and `TIM` classification task is provided in `Benchmark/C-100/c100_DPN_training.py` and `Benchmark/TIM/TIM_DPN_training.py`.
 
-`klDiv_gaussians.py` provides the code to compute the KL-divergence between two Gaussian distributions given their mean and co-variance matrix. This measure is used in Table-3 of our paper.
+`uncertainty_metric.py` (in `Benchmark` directory) provides the code for calculating the uncertainty measures
+
+`klDiv_gaussians.py` (in `Benchmark` directory) provides the code to compute the KL-divergence between two Gaussian distributions given their mean and co-variance matrix. This measure is used in Table-3 of our paper.
 
 ## Citation
 
