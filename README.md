@@ -1,12 +1,14 @@
-# Towards Maximizing the Representation Gap between In-Domain & Out-of-Distribution Examples
+# Towards Maximizing the Representation Gap between In-Domain & Out-of-Distribution Examples (ICML UDL 2020, NeurIPS 2020)
+Workshop version: ICML Workshop on Uncertainty & Robustness in Deep Learning (UDL) [[Link]](http://www.gatsby.ucl.ac.uk/~balaji/udl2020/accepted-papers/UDL2020-paper-134.pdf)
+
+Full paper: Paper link to be uploaded soon. 
+
 Abstract - Among existing uncertainty estimation approaches, Dirichlet Prior Network (DPN) distinctly models different predictive uncertainty types. 
 However, for in-domain examples with high data uncertainties among multiple classes, even a DPN model often produces indistinguishable representations from the out-of-distribution (OOD) examples, compromising their OOD detection performance. 
 We address this shortcoming by proposing a novel loss function for DPN to maximize the representation gap between in-domain and OOD examples. 
 Experimental results demonstrate that our proposed approach consistently improves OOD detection performance.
 
-Workshop version of this work has been accepted in ICML Workshop on Uncertainty & Robustness in Deep Learning (UDL) [[Link]](http://www.gatsby.ucl.ac.uk/~balaji/udl2020/accepted-papers/UDL2020-paper-134.pdf)
 
-Full version of this work has been accepted at NeurIPS 2020. Paper link to be uploaded soon. 
 
 ## Descriptions of the codes:
 In this repository, we provide the training code for our DPN models along with codes for necessary metrics applied in our paper:
