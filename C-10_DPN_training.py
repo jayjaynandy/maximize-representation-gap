@@ -21,9 +21,6 @@ import setup_data
 import tensorflow as tf
 
 import os
-os.environ['PYTHONHASHSEED'] = '0'
-tf.set_random_seed(9988)
-np.random.seed(9988)
 
 class cifar10vgg:
     def __init__(self):
