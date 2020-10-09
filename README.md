@@ -9,7 +9,7 @@ In this paper, we address this shortcoming by proposing a novel loss function fo
 Experimental results demonstrate that our proposed approach consistently improves OOD detection performance.
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/jayjaynandy/maximize-representation-gap/blob/master/DPN_uncertainties.png" alt="Desired representation of predictive uncertainties.">
+  <img width="750" height="250" src="https://github.com/jayjaynandy/maximize-representation-gap/blob/master/DPN_uncertainties.png" alt="Desired representation of predictive uncertainties.">
 </p>
 
 
