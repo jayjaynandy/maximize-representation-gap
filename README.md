@@ -23,7 +23,7 @@ We further show that, the DPN framework using RKL loss cannot produce sharp-mult
 ## Descriptions of the codes:
 Our models are trained and tested using `keras 2.1.2` and `tensorflow 1.9.0`
 
-### Synthetic Experiment
+### Synthetic Dataset.
 Please follow the jupyter notebook domonstration, `DPN_synthetic_demo.ipynb` in `synthetic_experiment_demo` to understand and visualize the motivation and advantage of our proposed loss function for the DPN models.
 
 `toyNet.py`: A 2-layered network used for our experiments. We can simply choose a different network for complex datasets.
@@ -33,8 +33,7 @@ Please follow the jupyter notebook domonstration, `DPN_synthetic_demo.ipynb` in 
 `synthetic_data.py`: To generate the synthetic data.
 
 
-### Benchmark datasets.
-
+### Benchmark Dataset.
 `C-10_DPN_training.py` in `Benchmark/C-10/` directory provides the training code for our `DPN^-` classifier for C10 classification task.
 
 Training `DPN+`: Please follow the instructions inside the `C-10_DPN_training.py` code to modify the hyper-parameter of our proposed loss function for `DPN+` (as instructed inside the training code).
