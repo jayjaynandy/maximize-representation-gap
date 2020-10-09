@@ -8,7 +8,10 @@ However, for in-domain examples with high data uncertainties among multiple clas
 In this paper, we address this shortcoming by proposing a novel loss function for DPN to maximize the representation gap between in-domain and OOD examples. 
 Experimental results demonstrate that our proposed approach consistently improves OOD detection performance.
 
-<img src="https://github.com/jayjaynandy/maximize-representation-gap/blob/master/DPN_uncertainties.png?raw=true" width="500" height="600">
+<p align="center">
+  <img width="460" height="300" src="https://github.com/jayjaynandy/maximize-representation-gap/blob/master/DPN_uncertainties.png" alt="Desired representation of predictive uncertainties.">
+</p>
+
 
 We show that for in-domain examples with high data uncertainties, their loss function distributes the target precision values among the overlapping classes, leading to much flatter distributions. 
 Hence, it often produces indistinguishable representations for those in-domain misclassified examples from the OOD examples, compromising the OOD detection performance.
