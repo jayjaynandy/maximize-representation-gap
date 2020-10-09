@@ -38,7 +38,7 @@ Please follow the jupyter notebook domonstration, `DPN_synthetic_demo.ipynb` in 
 
 Training `DPN+`: Please follow the instructions inside the `C-10_DPN_training.py` code to modify the hyper-parameter of our proposed loss function for `DPN+` (as instructed inside the training code).
 
-Similarly, the `DPN-` training codes for `C-100` and `TIM` classification task is provided in `Benchmark/C-100/c100_DPN_training.py` and `Benchmark/TIM/TIM_DPN_training.py`.
+Similarly, the `DPN-` training codes for `C-100` and `TIM` classification task is provided in `Benchmark/C-100/c100_DPN_training.py` and `Benchmark/TIM/TIM_DPN_training.py` respectively.
 
 `uncertainty_metric.py` (in `Benchmark` directory) provides the code for calculating the uncertainty measures
 
