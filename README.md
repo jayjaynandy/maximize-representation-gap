@@ -1,4 +1,4 @@
-# Towards Maximizing the Representation Gap between In-Domain & Out-of-Distribution Examples (ICML UDL 2020, NeurIPS 2020)
+# Towards Maximizing the Representation Gap between In-Domain & Out-of-Distribution Examples
 Workshop version: [ICML 2020 Workshop on Uncertainty & Robustness in Deep Learning (UDL)](http://www.gatsby.ucl.ac.uk/~balaji/udl2020/accepted-papers/UDL2020-paper-134.pdf)
 
 Full paper:  [NeurIPS 2020](https://neurips.cc/Conferences/2020/AcceptedPapersInitial)
