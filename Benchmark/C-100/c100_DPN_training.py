@@ -42,7 +42,7 @@ in_dist = setup_data.Cifar100()
 # setting the augmentation parameters to rotation_range=0, width_shift_range=0.0, height_shift_range=0.0.
 # We also applied this trick to train the competative models as well.
 # It improves the OOD detection performance as well as the in-domain classification accuracy.
-datagen = ImageDataGenerator(rotation_range= 10, width_shift_range=0.1,
+datagen = ImageDataGenerator(rotation_range= 1, width_shift_range=0.1,
                              height_shift_range=0.1, horizontal_flip=True,
                              fill_mode="reflect")
 
